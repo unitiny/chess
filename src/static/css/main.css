@@ -1,0 +1,18 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+/* 棋盘 */
+
+.board {
+    position: absolute;
+    width: 90%;
+    height: 1000rpx;
+    z-index: 0;
+    top: 40rpx;
+}
+

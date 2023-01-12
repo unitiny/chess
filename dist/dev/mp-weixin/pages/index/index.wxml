@@ -1,0 +1,1 @@
+<view class="content data-v-1badc801"><image class="background data-v-1badc801" src="{{a}}"></image><view class="panel data-v-1badc801"><view wx:for="{{b}}" wx:for-item="item" wx:key="b" class="data-v-1badc801" bindtap="{{item.c}}">{{item.a}}</view></view></view>
