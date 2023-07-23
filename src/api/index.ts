@@ -4,6 +4,7 @@ import axios from "axios";
 // const httpRoot = "https://chat-chat-eerndkjruc.cn-hangzhou.fcapp.run"
 // const httpRoot = "https://chess-back-production-ad86.up.railway.app"
 const httpRoot = "https://chess-back.zeabur.app"
+const proxyRoot = "zeabur"
 
 // const hostName = window.document.location.hostname
 // const wsRoot = `ws://${hostName}:9000`
@@ -21,7 +22,7 @@ const API = {
 
 // 注意 参数data是用于post请求的
 const Axios = axios.create({
-    baseURL: httpRoot,
+    baseURL: proxyRoot,
     timeout: 1000 * 20,
 })
 
