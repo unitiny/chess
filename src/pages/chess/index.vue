@@ -218,8 +218,8 @@ function recordPos(index: number, pos: Array<number>) {
 
 // 悔棋过滤器
 async function tryBack() {
-  // 双人则发送给对方悔棋指令
   if (refEdit.value.isDoubleGame(mode.value)) {
+    // 双人则发送给对方悔棋指令
     if (!common.isSameStatus(mode.value, game.value.curCamp.toString())) {
       refEdit.value.sendAction(MSG_TYPE.BACK)
       goBack()
@@ -318,7 +318,9 @@ function changeCamp() {
     return v
   })
 
-  game.value.setProcess(PROCESS.END, Date.now())
+  if(store.state.tip != TIP_MSG.KILLED_KING) {
+    game.value.setProcess(PROCESS.END, Date.now())
+  }
 }
 
 // 是否是当前阵容
@@ -455,7 +457,7 @@ function machineStep(msg: string) {
 
 // 绝杀检查
 function checkmate() {
-  if (moves.isCheckmate(chesses.value, game.value.curCamp)) {
+  if (moves.isCheckmate(chesses.value, game.value.curCamp) ) {
     console.log("绝杀")
     game.value.close = true
     store.commit("updateTip", TIP_MSG.CHECKMATE)

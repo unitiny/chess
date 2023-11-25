@@ -5,6 +5,7 @@ import uni from "@dcloudio/vite-plugin-uni";
 export default defineConfig({
   plugins: [uni()],
   server: {
+    // 打包成dist，代理就不生效。只作用于开发环境中
     proxy: {
       '/local': {
         target: 'http://0.0.0.0:9000',	//实际请求地址

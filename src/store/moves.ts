@@ -506,10 +506,15 @@ function isCheckKing(chesses: Array<Chess>, camp: number): boolean {
     for (let i = 0; i < chesses.length; i++) {
         if (chesses[i].name === CHESS_NAME.KING &&
             isSameStatus(chesses[i].status, camp.toString())) {
+            // 将军挂了,则绝杀
+            if(!chesses[i].live) {
+                return true
+            }
             kingPos.x = chesses[i].x
             kingPos.y = chesses[i].y
         }
     }
+
     // 遍历对方所有走法，看是否能攻击到将军位置
     for (let i = 0; i < chesses.length; i++) {
         if (!chesses[i].live) {

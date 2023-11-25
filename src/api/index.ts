@@ -1,17 +1,24 @@
 import axios from "axios";
 
-// const httpRoot = "/local"
-// const httpRoot = "https://chat-chat-eerndkjruc.cn-hangzhou.fcapp.run"
-// const httpRoot = "https://chess-back-production-ad86.up.railway.app"
-const httpRoot = "https://chess-back.zeabur.app"
-const proxyRoot = "zeabur"
+const Debug = true
 
-// const hostName = window.document.location.hostname
-// const wsRoot = `ws://${hostName}:9000`
+// let httpRoot = "/local"
+// let httpRoot = "https://chat-chat-eerndkjruc.cn-hangzhou.fcapp.run"
+// let httpRoot = "https://chess-back-production-ad86.up.railway.app"
+let httpRoot = "https://chess-back.zeabur.app"
 
-// const wsRoot = "wss://chat-chat-eerndkjruc.cn-hangzhou.fcapp.run"
-// const wsRoot = "wss://chess-back-production-ad86.up.railway.app"
-const wsRoot = "https://chess-back.zeabur.app"
+// let hostName = window.document.location.hostname
+// let wsRoot = `ws://${hostName}:9000`
+
+// let wsRoot = "wss://chat-chat-eerndkjruc.cn-hangzhou.fcapp.run"
+// let wsRoot = "wss://chess-back-production-ad86.up.railway.app"
+let wsRoot = "wss://chess-back.zeabur.app"
+
+if(Debug) {
+    httpRoot = "/local"
+    let hostName = window.document.location.hostname
+    wsRoot = `ws://${hostName}:9000`
+}
 
 const API = {
     chat: wsRoot + "/joinRoom",
@@ -22,8 +29,8 @@ const API = {
 
 // 注意 参数data是用于post请求的
 const Axios = axios.create({
-    baseURL: proxyRoot,
-    timeout: 1000 * 20,
+    baseURL: httpRoot,
+    timeout: 1000 * 60,
 })
 
 // // 添加请求拦截器
