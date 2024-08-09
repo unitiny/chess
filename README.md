@@ -24,7 +24,7 @@
 
 1. 克隆项目到本地
 ```sh
-git clone https://github.com/unitiny/chess-back.git
+git clone https://github.com/unitiny/chess-front.git
 ```
 
 ```shell
